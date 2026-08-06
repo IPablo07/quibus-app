@@ -28,14 +28,18 @@
       <h2 id="titulo-buscar">Buscar Viaje</h2>
 
       <form action="#" method="get" aria-label="Formulario de busqueda de viaje">
-        <label for="origen-v2">Origen</label>
-        <input type="text" id="origen-v2" name="origen" placeholder="ej. Carolina" autocomplete="off">
+  <fieldset>
+    <legend>Datos del viaje</legend>
 
-        <label for="destino-v2">Destino</label>
-        <input type="text" id="destino-v2" name="destino" placeholder="ej. Carolina" autocomplete="off">
+    <label for="origen-v2">Origen</label>
+    <input type="text" id="origen-v2" name="origen" placeholder="ej. Carolina" autocomplete="off" required>
 
-        <button type="submit">Buscar</button>
-      </form>
+    <label for="destino-v2">Destino</label>
+    <input type="text" id="destino-v2" name="destino" placeholder="ej. Carolina" autocomplete="off" required>
+
+    <button type="submit">Buscar</button>
+  </fieldset>
+    </form>
     </section>
 
     <section aria-label="Mapa de rutas">
