@@ -11,6 +11,10 @@ Enlace al proyecto de Figma: [https://www.figma.com/design/ASTusrmuMWKqSbYTHO8be
 ## Pantalla implementada
 Buscar Viaje: pantalla principal donde el usuario ingresa su origen y destino, visualiza el mapa de rutas y consulta los resultados de búsqueda con las paradas y tiempos disponibles.
 
+Buscar Viaje v2: versión simplificada de la pantalla de búsqueda, donde el usuario ingresa su origen y destino, y visualiza el mapa de rutas disponibles.
+
+Resultados: pantalla que muestra los resultados de búsqueda de rutas de bus disponibles, incluyendo el tiempo estimado y la parada de cada ruta, junto con el mapa de rutas de la ciudad.
+
 ## Integrantes
 - Pablo Jacome
 - Mateo Hidalgo
