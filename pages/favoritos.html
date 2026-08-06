@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Rutas favoritas guardadas por el usuario en QuiBus">
+  <title>QuiBus - Favoritos</title>
+</head>
+<body>
+
+  <header>
+    <img src="../images/logo.png" alt="Logotipo de QuiBus, un autobús estilizado en color rojo">
+    <h1>QuiBus</h1>
+
+    <nav aria-label="Menú principal">
+      <ul>
+        <li><a href="../index.html">Inicio</a></li>
+        <li><a href="#">Paradas</a></li>
+        <li><a href="#" aria-current="page">Favoritos</a></li>
+        <li><a href="#">Cuenta</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <section aria-labelledby="titulo-favoritos">
+      <h2 id="titulo-favoritos">Favoritos</h2>
+
+      <ul>
+        <li>
+          <button type="button" aria-label="Ruta favorita, desde Casa hasta Universidad">
+            Casa &rarr; Universidad
+          </button>
+        </li>
+        <li>
+          <button type="button" aria-label="Ruta favorita, desde Casa hasta Trabajo">
+            Casa &rarr; Trabajo
+          </button>
+        </li>
+        <li>
+          <button type="button" aria-label="Ruta favorita, desde CCI hasta Labrador">
+            CCI &rarr; Labrador
+          </button>
+        </li>
+        <li>
+          <button type="button" aria-label="Ruta favorita, desde Iñaquito hasta Mena II">
+            Iñaquito &rarr; Mena II
+          </button>
+        </li>
+      </ul>
+
+      <button type="button" aria-label="Añadir nueva ruta favorita">
+        Añadir ruta
+      </button>
+
+    </section>
+
+    <section aria-label="Mapa de rutas favoritas">
+      <h2>Mapa de rutas</h2>
+      <img src="../images/mapa-favoritos.jpg" alt="Mapa de la ciudad con las rutas favoritas marcadas en distintos colores, mostrando las paradas disponibles" aria-describedby="desc-mapa">
+      <p id="desc-mapa" class="sr-only">El mapa muestra las rutas favoritas del usuario distribuidas por la ciudad, cada una identificada con un color distinto y marcadores en las paradas principales.</p>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2026 QuiBus. Todos los derechos reservados.</p>
+  </footer>
+
+</body>
+</html>
