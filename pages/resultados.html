@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Resultados de búsqueda de rutas de bus en QuiBus">
+  <title>QuiBus - Resultados de Búsqueda</title>
+</head>
+<body>
+
+  <header>
+    <img src="../images/logo.png" alt="Logotipo de QuiBus, un autobús estilizado en color rojo">
+    <h1>QuiBus</h1>
+
+    <nav aria-label="Menú principal">
+      <ul>
+        <li><a href="../index.html">Inicio</a></li>
+        <li><a href="#">Paradas</a></li>
+        <li><a href="#" aria-current="page">Resultados</a></li>
+        <li><a href="#">Favoritos</a></li>
+        <li><a href="#">Cuenta</a></li>
+        <li><a href="#">Ayuda</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <section aria-labelledby="titulo-resultados">
+      <h2 id="titulo-resultados">Resultados de Búsqueda</h2>
+
+      <article aria-label="Ruta T1, tiempo estimado 15 minutos, parada Parque Carolina">
+        <h3>T1 - Ruta de Bus</h3>
+        <p>Tiempo estimado: 15 min</p>
+        <p>Parada: Parque Carolina</p>
+      </article>
+
+      <article aria-label="Ruta T6, tiempo estimado 20 minutos, parada Carcelén">
+        <h3>T6 - Ruta de Bus</h3>
+        <p>Tiempo estimado: 20 min</p>
+        <p>Parada: Carcelén</p>
+      </article>
+
+      <article aria-label="Ruta T2, tiempo estimado 30 minutos, parada Iglesia de la Merced">
+        <h3>T2 - Ruta de Bus</h3>
+        <p>Tiempo estimado: 30 min</p>
+        <p>Parada: Iglesia de la Merced</p>
+      </article>
+
+      <article aria-label="Ruta T4, tiempo estimado 15 minutos, parada La Magdalena">
+        <h3>T4 - Ruta de Bus</h3>
+        <p>Tiempo estimado: 15 min</p>
+        <p>Parada: La Magdalena</p>
+      </article>
+
+      <article aria-label="Ruta T8, tiempo estimado 15 minutos, parada CCI">
+        <h3>T8 - Ruta de Bus</h3>
+        <p>Tiempo estimado: 15 min</p>
+        <p>Parada: CCI</p>
+      </article>
+
+      <article aria-label="Ruta T9, tiempo estimado 45 minutos, parada El Playón">
+        <h3>T9 - Ruta de Bus</h3>
+        <p>Tiempo estimado: 45 min</p>
+        <p>Parada: El Playón</p>
+      </article>
+
+    </section>
+
+    <section aria-label="Mapa de rutas">
+      <h2>Mapa de rutas</h2>
+      <img src="../images/banner.jpg" alt="Mapa de la ciudad con las rutas de bus marcadas en distintos colores, mostrando las paradas disponibles" aria-describedby="desc-mapa">
+      <p id="desc-mapa" class="sr-only">El mapa muestra las rutas T1, T2, T4, T6 y T8 distribuidas por la ciudad, cada una identificada con un color distinto y marcadores en las paradas principales.</p>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2026 QuiBus. Todos los derechos reservados.</p>
+  </footer>
+
+</body>
+</html>

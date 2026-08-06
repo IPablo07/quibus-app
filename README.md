@@ -18,3 +18,19 @@ Buscar Viaje: pantalla principal donde el usuario ingresa su origen y destino, v
 ## Tecnologías
 - HTML5
 - GitHub
+
+
+
+## Pantalla individual: Resultados (Pablo Jacome)
+
+### Justificación de etiquetas semánticas
+
+| Zona | Etiqueta | Justificación |
+
+| Logo + título + nav | header | Cabecera con identificación de la pantalla actual 
+| Enlaces de navegación | nav | Agrupa los enlaces principales del sitio 
+| Contenido central | main | Contenido principal de la pantalla 
+| Lista de resultados | section | Bloque que agrupa contenido de resultados de busqueda
+| Cada tarjeta de ruta | article | Contenido independiente y autocontenido 
+| Mapa de rutas | section | Bloque Mapa de igual jerarquía que los resultados 
+| Franja inferior | footer | Pie de página 
