@@ -150,7 +150,8 @@ label {
   font-weight: 600;
 }
 
-input[type="text"] {
+input[type="text"],
+input[type="password"] {
   background-color: var(--color-secondary);
   border: none;
   border-radius: var(--radius-md);
@@ -159,11 +160,13 @@ input[type="text"] {
   color: var(--color-text);
 }
 
-input[type="text"]::placeholder {
+input[type="text"]::placeholder,
+input[type="password"]::placeholder {
   color: #6b5a3f;
 }
 
-input[type="text"]:focus {
+input[type="text"]:focus,
+input[type="password"]:focus {
   outline: 3px solid #ffffff;
   outline-offset: 2px;
 }
@@ -178,7 +181,8 @@ input[type="text"].input-error {
   margin-bottom: 0;
 }
 
-input[type="text"]:disabled {
+input[type="text"]:disabled,
+input[type="password"]:disabled {
   background-color: #e9ecef;
   color: #6b7280;
   cursor: not-allowed;
@@ -265,4 +269,98 @@ footer {
 footer p {
   margin: 0;
   font-size: var(--font-caption);
+}
+/* ============================================
+   PANTALLA DE LOGIN
+   ============================================ */
+.login-header {
+  justify-content: center;
+  gap: var(--space-xs);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.login-main {
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 75vh;
+  padding-top: var(--space-lg);
+}
+
+.login-card {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  max-width: 420px;
+  width: 100%;
+  text-align: center;
+}
+
+.login-card h2 {
+  margin-top: 0;
+}
+
+.login-card form {
+  text-align: left;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #ffffff;
+  font-size: var(--font-caption);
+  margin: var(--space-sm) 0;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px solid rgba(255,255,255,0.5);
+}
+
+.divider span {
+  padding: 0 var(--space-xs);
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-sm);
+}
+
+.icon-link {
+  color: #ffffff;
+  display: flex;
+}
+
+.icon-link:hover {
+  color: var(--color-primary);
+}
+
+.registro-link {
+  font-size: var(--font-caption);
+  margin: 0;
+  color: #ffffff;
+}
+
+.registro-link a {
+  color: #ffffff;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.footer-bar {
+  background-color: var(--color-primary);
+  height: 32px;
+  width: 100%;
+  margin-top: var(--space-lg);
+}
+.login-card button[type="submit"] {
+  background-color: var(--color-secondary);
+  color: #4a3820;
+}
+
+.login-card button[type="submit"]:hover {
+  background-color: #c99e47;
 }
