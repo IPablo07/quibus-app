@@ -371,6 +371,12 @@ footer p {
 /* ============================================
    PANTALLA DE PERFIL
    ============================================ */
+.perfil-body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 .perfil-header {
   justify-content: center;
   gap: var(--space-xs);
@@ -389,6 +395,7 @@ footer p {
 }
 
 .perfil-main {
+  flex: 1;
   flex-direction: column;
   align-items: flex-start;
 }
@@ -491,13 +498,9 @@ footer p {
 }
 
 .perfil-footer {
-  text-align: center;
-  padding: var(--space-sm) 0 0 0;
-  margin-top: auto;
   width: 100%;
 }
 
 .perfil-footer p {
   font-size: var(--font-caption);
-  color: #666666;
 }

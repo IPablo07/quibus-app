@@ -42,16 +42,8 @@
   <footer class="perfil-footer">
     <p>App Version 1.0</p>
   </footer>
-  <div class="footer-bar"></div>
 
   <script>
     const alertBox = document.getElementById('logoutAlert');
     document.getElementById('btnLogout').addEventListener('click', () => alertBox.hidden = false);
-    document.getElementById('cancelLogout').addEventListener('click', () => alertBox.hidden = true);
-    document.getElementById('confirmLogout').addEventListener('click', () => {
-      alertBox.hidden = true;
-      alert('Sesión cerrada');
-    });
-  </script>
-</body>
-</html>
+    document.getElementById('cancelLogout').addEventListener('click', () =>
