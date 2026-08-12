@@ -5,12 +5,53 @@
   <title>QuiBus - Perfil</title>
   <link rel="stylesheet" href="../css/styles.css">
 </head>
-<body>
-  <h2>Perfil</h2>
-  <p>Juan Serrano</p>
-  <p>login@gmail.com</p>
-  <p>Favoritos</p>
-  <p>Ayuda</p>
-  <p>Cerrar Sesión</p>
+<body class="perfil-body">
+
+  <header class="perfil-header">
+    <button class="icon-btn" aria-label="Volver">←</button>
+    <h2>Perfil</h2>
+  </header>
+
+  <main class="perfil-main">
+
+    <article class="profile-card">
+      <div class="avatar" aria-hidden="true"></div>
+      <div class="profile-card__info">
+        <h3>Juan Serrano</h3>
+        <p>login@gmail.com</p>
+      </div>
+    </article>
+
+    <nav class="profile-menu">
+      <button type="button" class="profile-menu__item">♡ Favoritos</button>
+      <button type="button" class="profile-menu__item">◎ Ayuda</button>
+      <button type="button" class="profile-menu__item" id="btnLogout">← Cerrar Sesión</button>
+    </nav>
+
+    <!-- Componente adicional: alerta de confirmación -->
+    <div class="alert-box" id="logoutAlert" hidden>
+      <p>¿Seguro que deseas cerrar sesión?</p>
+      <div class="alert-box__actions">
+        <button type="button" class="alert-box__cancel" id="cancelLogout">Cancelar</button>
+        <button type="button" class="alert-box__confirm" id="confirmLogout">Cerrar Sesión</button>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="perfil-footer">
+    <p>App Version 1.0</p>
+  </footer>
+  <div class="footer-bar"></div>
+
+  <script>
+    const alertBox = document.getElementById('logoutAlert');
+    document.getElementById('btnLogout').addEventListener('click', () => alertBox.hidden = false);
+    document.getElementById('cancelLogout').addEventListener('click', () => alertBox.hidden = true);
+    document.getElementById('confirmLogout').addEventListener('click', () => {
+      alertBox.hidden = true;
+      alert('Sesión cerrada');
+    });
+  </script>
 </body>
 </html>
