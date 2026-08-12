@@ -344,6 +344,7 @@ footer p {
 .registro-link {
   font-size: var(--font-caption);
   margin: 0;
+  margin-top: var(--space-sm);
   color: #ffffff;
 }
 
@@ -397,4 +398,36 @@ footer p {
   flex-direction: column;
   gap: var(--space-xs);
   flex: 1;
+}
+/* ============================================
+   RESPONSIVE - Pantallas pequeñas (celular)
+   ============================================ */
+@media (max-width: 768px) {
+  .login-main {
+    padding: var(--space-sm);
+    padding-top: var(--space-md);
+  }
+
+  .login-card {
+    max-width: 100%;
+    padding: var(--space-sm);
+  }
+
+  .registro-card {
+    max-width: 100%;
+  }
+
+  .form-row {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .login-header {
+    padding: var(--space-sm);
+  }
+
+  .login-header h1,
+  .login-header img {
+    height: auto;
+  }
 }
