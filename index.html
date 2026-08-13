@@ -29,14 +29,19 @@
       <h2>Buscar Viaje</h2>
 
       <form action="#" method="get">
-        <label for="origen">Origen</label>
-        <input type="text" id="origen" name="origen" placeholder="Ingresa tu punto de partida">
+  <div class="form-row">
+    <div class="form-group">
+      <label for="origen">Origen</label>
+      <input type="text" id="origen" name="origen" placeholder="Ingresa tu punto de partida">
+    </div>
+    <div class="form-group">
+      <label for="destino">Destino</label>
+      <input type="text" id="destino" name="destino" placeholder="Ingresa tu destino">
+    </div>
+  </div>
 
-        <label for="destino">Destino</label>
-        <input type="text" id="destino" name="destino" placeholder="Ingresa tu destino">
-
-        <button type="submit">Buscar</button>
-      </form>
+  <button type="submit">Buscar</button>
+</form>
     </section>
 
     <section class="mapa-card" aria-label="Mapa de rutas">
@@ -55,10 +60,10 @@
 </section>
 
     <!-- Contenido secundario: lista de rutas relacionadas a la busqueda -->
-    <aside aria-label="Resultados de búsqueda">
-      <h2>Resultados de Búsqueda</h2>
+    <aside class="resultados-lista" aria-label="Resultados de búsqueda">
+    <h2>Resultados de Búsqueda</h2>
 
-      <article>
+  <article>
         <h3>T1 - Ruta de Bus</h3>
         <p>Tiempo estimado: 15 min</p>
         <p>Parada: Parque Carolina</p>
