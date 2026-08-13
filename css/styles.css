@@ -370,6 +370,125 @@ footer p {
   background-color: #c99e47;
 }
 /* ============================================
+   PANTALLA DE PERFIL
+   ============================================ */
+.perfil-body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.perfil-header {
+  justify-content: center;
+  gap: var(--space-xs);
+  border-bottom: 1px solid var(--color-border);
+  position: relative;
+}
+.perfil-header .icon-btn {
+  position: absolute;
+  left: var(--space-md);
+  background: none;
+  border: none;
+  font-size: var(--font-h2);
+  cursor: pointer;
+  padding: 0;
+}
+.perfil-main {
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.profile-card {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  width: 100%;
+  background-color: var(--color-background);
+  border: none;
+  box-shadow: none;
+}
+.profile-card .avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 2px solid var(--color-text);
+}
+.profile-card__info h3 {
+  margin: 0;
+  color: var(--color-text);
+}
+.profile-card__info p {
+  margin: 0;
+  font-size: var(--font-caption);
+  color: #555555;
+}
+.profile-menu {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  width: 100%;
+  max-width: 220px;
+}
+.profile-menu__item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  background-color: var(--color-secondary);
+  color: #4a3820;
+  font-size: var(--font-body);
+  font-weight: 600;
+  border: none;
+  border-radius: var(--radius-lg);
+  padding: var(--space-xs) var(--space-sm);
+  text-align: left;
+  cursor: pointer;
+}
+.profile-menu__item:hover {
+  background-color: #c99e47;
+}
+.profile-menu__item:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 2px;
+}
+.alert-box {
+  margin-top: var(--space-md);
+  padding: var(--space-sm);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  background-color: #f7f8fa;
+  max-width: 260px;
+}
+.alert-box p {
+  margin: 0 0 var(--space-xs) 0;
+  font-size: var(--font-body);
+  color: var(--color-text);
+}
+.alert-box__actions {
+  display: flex;
+  gap: var(--space-xs);
+}
+.alert-box__cancel {
+  background: none;
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+  font-size: var(--font-caption);
+  border-radius: var(--radius-sm);
+  padding: 6px 12px;
+}
+.alert-box__confirm {
+  background-color: #d92d20;
+  color: #ffffff;
+  font-size: var(--font-caption);
+  border-radius: var(--radius-sm);
+  padding: 6px 12px;
+}
+.perfil-footer {
+  width: 100%;
+}
+.perfil-footer p {
+  font-size: var(--font-caption);
+}
+
+/* ============================================
    PANTALLA DE REGISTRO
    ============================================ */
 .back-link {
@@ -378,22 +497,18 @@ footer p {
   font-size: var(--font-h2);
   font-weight: 700;
 }
-
 .login-header h1 {
   font-size: var(--font-h2);
   color: var(--color-text);
   margin: 0 auto;
 }
-
 .registro-card {
   max-width: 600px;
 }
-
 .form-row {
   display: flex;
   gap: var(--space-sm);
 }
-
 .form-group {
   display: flex;
   flex-direction: column;
@@ -420,30 +535,26 @@ footer p {
     padding: var(--space-sm);
     padding-top: var(--space-md);
   }
-
   .login-card {
     max-width: 100%;
     padding: var(--space-sm);
   }
-
   .registro-card {
     max-width: 100%;
   }
-
   .form-row {
     flex-direction: column;
     gap: 0;
   }
-
   .login-header {
     padding: var(--space-sm);
   }
-
   .login-header h1,
   .login-header img {
     height: auto;
   }
 }
+
 /* ============================================
    ACCESIBILIDAD
    ============================================ */
