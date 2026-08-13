@@ -14,10 +14,10 @@
 
     <nav aria-label="Menú principal">
       <ul>
-        <li><a href="#">Inicio</a></li>
-        <li><a href="#">Paradas</a></li>
-        <li><a href="#">Favoritos</a></li>
-        <li><a href="#">Cuenta</a></li>
+        <li><a href="index.html" aria-current="page">Inicio</a></li>
+        <li><a href="pages/paradas-cercanas.html">Paradas</a></li>
+        <li><a href="pages/favoritos.html">Favoritos</a></li>
+        <li><a href="pages/login.html">Cuenta</a></li>
       </ul>
     </nav>
   </header>
@@ -41,10 +41,22 @@
 
     <section aria-label="Mapa de rutas">
       <h2>Mapa de rutas</h2>
-      <img src="https://placehold.co/800x500/e8e8e8/333333?text=Mapa+de+Rutas+QuiBus" alt="Mapa de la ciudad con las rutas de bus marcadas en distintos colores">
+      <iframe
+        class="mapa-embed"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d320846.1853174419!2d-78.5953474688905!3d-0.18625022770477181!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91d59a4002427c9f%3A0x44b991e158ef5572!2sQuito!5e1!3m2!1ses!2sec!4v1786583657765!5m2!1ses!2sec"
+        width="100%"
+        height="400"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="strict-origin-when-cross-origin"
+        title="Mapa de rutas favoritas en Quito"
+        aria-describedby="desc-mapa">
+      </iframe>
     </section>
-<!-- Contenido secundario: lista de rutas relacionadas a la busqueda -->
-    <aside aria-label="Resultados de búsqueda"><aside aria-label="Resultados de búsqueda">
+
+    <!-- Contenido secundario: lista de rutas relacionadas a la busqueda -->
+    <aside aria-label="Resultados de búsqueda">
       <h2>Resultados de Búsqueda</h2>
 
       <article>
@@ -54,11 +66,23 @@
       </article>
 
       <article>
-        <h3>Ruta de Bus</h3>
+        <h3>T6 - Ruta de Bus</h3>
         <p>Tiempo estimado: 45 min</p>
         <p>Parada: El Playón</p>
       </article>
 
       <article>
         <h3>T8 - Ruta de Bus</h3>
-        <p>Tiempo estimado: 15
+        <p>Tiempo estimado: 15 min</p>
+        <p>Parada: CCI</p>
+      </article>
+    </aside>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2026 QuiBus. Todos los derechos reservados.</p>
+  </footer>
+
+</body>
+</html>
