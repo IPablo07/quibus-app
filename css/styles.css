@@ -622,3 +622,156 @@ footer p {
   padding: 0;
   margin-bottom: var(--space-sm);
 }
+/* ============================================
+   PANTALLA DE PERFIL
+   ============================================ */
+.perfil-header {
+  gap: var(--space-sm);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.perfil-header h2 {
+  flex: 1;
+  text-align: center;
+  margin: 0;
+}
+
+.icon-btn {
+  background: none;
+  border: none;
+  font-size: var(--font-h2);
+  padding: var(--space-xs);
+  color: var(--color-text);
+}
+
+.icon-btn:hover {
+  color: var(--color-primary);
+}
+
+.icon-btn:focus-visible {
+  outline: 3px solid var(--color-secondary);
+  outline-offset: 2px;
+}
+
+.perfil-main {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: var(--space-md);
+  max-width: 500px;
+  width: 100%;
+  margin: 0 auto;
+  padding: var(--space-lg) var(--space-md);
+}
+
+.profile-card {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  background: none;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  margin: 0;
+}
+
+.avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background-color: var(--color-secondary);
+  color: #4a3820;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.profile-card__info h3 {
+  margin: 0;
+}
+
+.profile-card__info p {
+  margin: 4px 0 0;
+  font-size: var(--font-caption);
+  color: #555555;
+}
+
+.profile-menu {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.profile-menu__item {
+  background-color: var(--color-secondary);
+  color: #4a3820;
+  text-align: left;
+  font-size: var(--font-h3);
+  text-decoration: none;
+  display: block;
+}
+
+.profile-menu__item:hover {
+  background-color: #c99e47;
+}
+
+.profile-menu__item:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.profile-menu__item--danger {
+  background-color: transparent;
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+}
+
+.profile-menu__item--danger:hover {
+  background-color: var(--color-primary);
+  color: #ffffff;
+}
+
+.alert-box {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #ffffff;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 8px 24px rgb(0 0 0 / 25%);
+  padding: var(--space-md);
+  max-width: 320px;
+  width: 90%;
+  z-index: 100;
+  text-align: center;
+}
+
+.alert-box p {
+  margin: 0 0 var(--space-sm);
+  font-weight: 600;
+}
+
+.alert-box__actions {
+  display: flex;
+  gap: var(--space-sm);
+  justify-content: center;
+}
+
+.alert-box__cancel {
+  background-color: #e9ecef;
+  color: var(--color-text);
+}
+
+.alert-box__cancel:hover {
+  background-color: #d8dce5;
+}
+
+.alert-box__confirm {
+  background-color: var(--color-primary);
+  color: #ffffff;
+}
+
+.alert-box__confirm:hover {
+  background-color: #b16a4d;
+}

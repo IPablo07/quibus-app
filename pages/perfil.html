@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>QuiBus - Perfil</title>
   <link rel="stylesheet" href="../css/styles.css">
 </head>
@@ -14,17 +15,19 @@
 
   <main class="perfil-main">
     <article class="profile-card">
-      <div class="avatar" aria-hidden="true"></div>
+      <div class="avatar" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.5-6 8-6s8 2 8 6"/></svg>
+      </div>
       <div class="profile-card__info">
         <h3>Juan Serrano</h3>
         <p>login@gmail.com</p>
       </div>
     </article>
 
-    <nav class="profile-menu">
-      <button type="button" class="profile-menu__item">♡ Favoritos</button>
-      <button type="button" class="profile-menu__item">◎ Ayuda</button>
-      <button type="button" class="profile-menu__item" id="btnLogout">← Cerrar Sesión</button>
+    <nav class="profile-menu" aria-label="Menú de perfil">
+      <a href="favoritos.html" class="profile-menu__item">♡ Favoritos</a>
+      <a href="#" class="profile-menu__item">◎ Ayuda</a>
+      <button type="button" class="profile-menu__item profile-menu__item--danger" id="btnLogout">← Cerrar Sesión</button>
     </nav>
 
     <!-- Componente adicional: alerta de confirmación -->
@@ -38,8 +41,8 @@
   </main>
 
   <footer class="perfil-footer">
-    <p>App Version 1.0</p>
-  </footer>
+  <p>&copy; 2026 QuiBus. Todos los derechos reservados.</p>
+</footer>
 
   <script>
     const alertBox = document.getElementById('logoutAlert');
@@ -47,7 +50,6 @@
     document.getElementById('btnLogout').addEventListener('click', () => alertBox.hidden = false);
     document.getElementById('cancelLogout').addEventListener('click', () => alertBox.hidden = true);
     document.getElementById('confirmLogout').addEventListener('click', () => {
-      // Acá va la lógica real de cerrar sesión (ej: redirigir al login)
       window.location.href = '../index.html';
     });
   </script>
