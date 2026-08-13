@@ -46,6 +46,9 @@ body {
   line-height: 1.6;
   margin: 0;
   padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 h1 {
@@ -263,7 +266,7 @@ footer {
   color: #ffffff;
   text-align: center;
   padding: var(--space-md);
-  margin-top: var(--space-lg);
+  margin-top: auto;
 }
 
 footer p {
@@ -341,6 +344,7 @@ footer p {
 .registro-link {
   font-size: var(--font-caption);
   margin: 0;
+  margin-top: var(--space-sm);
   color: #ffffff;
 }
 
@@ -354,7 +358,7 @@ footer p {
   background-color: var(--color-primary);
   height: 32px;
   width: 100%;
-  margin-top: var(--space-lg);
+  margin-top: auto;
 }
 .login-card button[type="submit"] {
   background-color: var(--color-secondary);
@@ -364,10 +368,6 @@ footer p {
 .login-card button[type="submit"]:hover {
   background-color: #c99e47;
 }
-
-
-
-
 /* ============================================
    PANTALLA DE PERFIL
    ============================================ */
@@ -376,14 +376,12 @@ footer p {
   flex-direction: column;
   min-height: 100vh;
 }
-
 .perfil-header {
   justify-content: center;
   gap: var(--space-xs);
   border-bottom: 1px solid var(--color-border);
   position: relative;
 }
-
 .perfil-header .icon-btn {
   position: absolute;
   left: var(--space-md);
@@ -393,13 +391,11 @@ footer p {
   cursor: pointer;
   padding: 0;
 }
-
 .perfil-main {
   flex: 1;
   flex-direction: column;
   align-items: flex-start;
 }
-
 .profile-card {
   display: flex;
   align-items: center;
@@ -409,25 +405,21 @@ footer p {
   border: none;
   box-shadow: none;
 }
-
 .profile-card .avatar {
   width: 56px;
   height: 56px;
   border-radius: 50%;
   border: 2px solid var(--color-text);
 }
-
 .profile-card__info h3 {
   margin: 0;
   color: var(--color-text);
 }
-
 .profile-card__info p {
   margin: 0;
   font-size: var(--font-caption);
   color: #555555;
 }
-
 .profile-menu {
   display: flex;
   flex-direction: column;
@@ -435,7 +427,6 @@ footer p {
   width: 100%;
   max-width: 220px;
 }
-
 .profile-menu__item {
   display: flex;
   align-items: center;
@@ -450,16 +441,13 @@ footer p {
   text-align: left;
   cursor: pointer;
 }
-
 .profile-menu__item:hover {
   background-color: #c99e47;
 }
-
 .profile-menu__item:focus-visible {
   outline: 3px solid var(--color-primary);
   outline-offset: 2px;
 }
-
 .alert-box {
   margin-top: var(--space-md);
   padding: var(--space-sm);
@@ -468,18 +456,15 @@ footer p {
   background-color: #f7f8fa;
   max-width: 260px;
 }
-
 .alert-box p {
   margin: 0 0 var(--space-xs) 0;
   font-size: var(--font-body);
   color: var(--color-text);
 }
-
 .alert-box__actions {
   display: flex;
   gap: var(--space-xs);
 }
-
 .alert-box__cancel {
   background: none;
   border: 1px solid var(--color-border);
@@ -488,7 +473,6 @@ footer p {
   border-radius: var(--radius-sm);
   padding: 6px 12px;
 }
-
 .alert-box__confirm {
   background-color: #d92d20;
   color: #ffffff;
@@ -496,11 +480,64 @@ footer p {
   border-radius: var(--radius-sm);
   padding: 6px 12px;
 }
-
 .perfil-footer {
   width: 100%;
 }
-
 .perfil-footer p {
   font-size: var(--font-caption);
+}
+
+/* ============================================
+   PANTALLA DE REGISTRO
+   ============================================ */
+.back-link {
+  color: var(--color-text);
+  text-decoration: none;
+  font-size: var(--font-h2);
+  font-weight: 700;
+}
+.login-header h1 {
+  font-size: var(--font-h2);
+  color: var(--color-text);
+  margin: 0 auto;
+}
+.registro-card {
+  max-width: 600px;
+}
+.form-row {
+  display: flex;
+  gap: var(--space-sm);
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  flex: 1;
+}
+/* ============================================
+   RESPONSIVE - Pantallas pequeñas (celular)
+   ============================================ */
+@media (max-width: 768px) {
+  .login-main {
+    padding: var(--space-sm);
+    padding-top: var(--space-md);
+  }
+  .login-card {
+    max-width: 100%;
+    padding: var(--space-sm);
+  }
+  .registro-card {
+    max-width: 100%;
+  }
+  .form-row {
+    flex-direction: column;
+    gap: 0;
+  }
+  .login-header {
+    padding: var(--space-sm);
+  }
+  .login-header h1,
+  .login-header img {
+    height: auto;
+  }
 }
