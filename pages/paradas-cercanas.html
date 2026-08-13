@@ -4,60 +4,81 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>QuiBus | Paradas</title>
-  <meta name="description" content="Listado de paradas de bus disponibles en QuiBus junto con el mapa de rutas de la ciudad.">
+  <meta name="description" content="Listado de paradas de bus cercanas disponibles en QuiBus junto con el mapa de rutas de la ciudad.">
   <meta name="author" content="Mateo">
   <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
-  <a href="#main-content">Saltar al contenido principal</a>
+  <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
 
   <header aria-label="Cabecera de QuiBus">
-    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
-      <rect x="3" y="4" width="18" height="12" rx="3" stroke="currentColor" stroke-width="1.8"/>
-      <line x1="3" y1="9" x2="21" y2="9" stroke="currentColor" stroke-width="1.8"/>
-      <circle cx="7.5" cy="18.5" r="1.6" stroke="currentColor" stroke-width="1.6"/>
-      <circle cx="16.5" cy="18.5" r="1.6" stroke="currentColor" stroke-width="1.6"/>
-    </svg>
-    <p>QuiBus</p>
-
-    <form role="search" aria-label="Buscar sección de la aplicación">
-      <label for="busqueda">Buscar sección</label>
-      <input type="search" id="busqueda" name="busqueda" value="Paradas">
-    </form>
+    <img src="../images/logo.png" alt="Logotipo de QuiBus, un autobús estilizado en color rojo">
+    <h1>QuiBus</h1>
 
     <nav aria-label="Navegación principal">
       <ul>
-        <li><a href="#">Inicio</a></li>
-        <li><a href="#" aria-current="page">Paradas</a></li>
-        <li><a href="#">Favoritos</a></li>
-        <li><a href="#">Cuenta</a></li>
+        <li><a href="../index.html">Inicio</a></li>
+        <li><a href="paradas-cercanas.html" aria-current="page">Paradas</a></li>
+        <li><a href="favoritos.html">Favoritos</a></li>
+        <li><a href="login.html">Cuenta</a></li>
       </ul>
     </nav>
   </header>
 
   <main id="main-content">
-    <h1>Paradas</h1>
 
-    <section aria-labelledby="listado-heading">
-      <h2 id="listado-heading">Listado de paradas</h2>
-      <ul>
-        <li><button type="button" aria-label="Ver detalle de Parada central">Parada central</button></li>
-        <li><button type="button" aria-label="Ver detalle de Parada Norte">Parada Norte</button></li>
-        <li><button type="button" aria-label="Ver detalle de Parada Sur">Parada Sur</button></li>
+    <section aria-labelledby="titulo-paradas">
+      <h2 id="titulo-paradas">Paradas Cercanas</h2>
+      <p class="subtitulo">Basado en tu ubicación actual</p>
+
+      <form role="search" class="filtro-paradas" aria-label="Filtrar paradas cercanas">
+        <label for="busqueda-parada" class="sr-only">Buscar parada</label>
+        <input type="search" id="busqueda-parada" name="busqueda-parada" placeholder="Buscar parada...">
+      </form>
+
+      <ul class="lista-paradas">
+        <li>
+          <button type="button" class="parada-item" aria-label="Parada Parque Carolina, a 200 metros, ruta T1">
+            <span class="parada-item__nombre">Parada Parque Carolina</span>
+            <span class="parada-item__meta">200 m &middot; Ruta T1</span>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="parada-item" aria-label="Parada Carcelén, a 450 metros, ruta T6">
+            <span class="parada-item__nombre">Parada Carcelén</span>
+            <span class="parada-item__meta">450 m &middot; Ruta T6</span>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="parada-item" aria-label="Parada CCI, a 600 metros, rutas T2 y T8">
+            <span class="parada-item__nombre">Parada CCI</span>
+            <span class="parada-item__meta">600 m &middot; Rutas T2, T8</span>
+          </button>
+        </li>
       </ul>
     </section>
 
-    <section aria-labelledby="mapa-heading">
+    <section class="mapa-card" aria-labelledby="mapa-heading">
       <h2 id="mapa-heading">Mapa de rutas</h2>
-      <figure>
-        <img src="mapa-rutas.png" alt="Mapa de la ciudad con las rutas de bus de QuiBus, mostrando las distintas líneas y sus paradas.">
-        <figcaption>Mapa referencial de las rutas y paradas disponibles</figcaption>
-      </figure>
+      <iframe
+        class="mapa-embed"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d320846.1853174419!2d-78.5953474688905!3d-0.18625022770477181!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91d59a4002427c9f%3A0x44b991e158ef5572!2sQuito!5e1!3m2!1ses!2sec!4v1786583657765!5m2!1ses!2sec"
+        width="100%"
+        height="400"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="strict-origin-when-cross-origin"
+        title="Mapa de rutas y paradas en Quito"
+        aria-describedby="desc-mapa-paradas">
+      </iframe>
+      <p id="desc-mapa-paradas" class="sr-only">El mapa muestra las paradas cercanas y las rutas de bus que pasan por cada una, distribuidas por la ciudad.</p>
     </section>
+
   </main>
 
   <footer aria-label="Pie de página">
-    <p>QuiBus &mdash; Todas las rutas en un solo lugar</p>
+    <p>&copy; 2026 QuiBus. Todos los derechos reservados.</p>
   </footer>
 </body>
 </html>
