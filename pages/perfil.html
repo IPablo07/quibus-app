@@ -13,7 +13,6 @@
   </header>
 
   <main class="perfil-main">
-
     <article class="profile-card">
       <div class="avatar" aria-hidden="true"></div>
       <div class="profile-card__info">
@@ -36,7 +35,6 @@
         <button type="button" class="alert-box__confirm" id="confirmLogout">Cerrar Sesión</button>
       </div>
     </div>
-
   </main>
 
   <footer class="perfil-footer">
@@ -45,5 +43,14 @@
 
   <script>
     const alertBox = document.getElementById('logoutAlert');
+
     document.getElementById('btnLogout').addEventListener('click', () => alertBox.hidden = false);
-    document.getElementById('cancelLogout').addEventListener('click', () =>
+    document.getElementById('cancelLogout').addEventListener('click', () => alertBox.hidden = true);
+    document.getElementById('confirmLogout').addEventListener('click', () => {
+      // Acá va la lógica real de cerrar sesión (ej: redirigir al login)
+      window.location.href = '../index.html';
+    });
+  </script>
+
+</body>
+</html>
