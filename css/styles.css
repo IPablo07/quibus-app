@@ -754,3 +754,51 @@ footer p {
   margin-bottom: var(--space-sm);
   font-size: var(--font-body);
 }
+/* ============================================
+   ESPECÍFICO: INDEX - FLEXBOX Y MEDIA QUERIES
+   ============================================ */
+
+/* Flexbox: distribuye las tarjetas de resultados en filas que se ajustan
+   automáticamente al espacio disponible, envolviendo a una nueva línea
+   cuando no caben más elementos en el ancho actual. */
+.resultados-lista {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  flex: 1 1 280px;
+  min-width: 280px;
+}
+
+.resultados-lista h2 {
+  width: 100%;
+}
+
+/* Cada tarjeta ocupa aprox. la mitad del contenedor menos el espacio del gap,
+   permitiendo 2 columnas en pantallas anchas. flex-grow permite que
+   la última tarjeta impar se estire si sobra espacio. */
+.resultados-lista article {
+  flex: 1 1 calc(50% - var(--space-sm) / 2);
+  min-width: 220px;
+}
+
+/* Media Query 1: pantallas medianas (tablets, ~1024px o menos).
+   Reduce las tarjetas de resultados a una sola columna, ya que el
+   espacio horizontal ya no alcanza cómodamente para dos. */
+@media (max-width: 1024px) {
+  .resultados-lista article {
+    flex: 1 1 100%;
+  }
+}
+
+/* Media Query 2: pantallas pequeñas (móviles, ~768px o menos).
+   El formulario de búsqueda pasa de fila a columna, apilando Origen
+   y Destino verticalmente para que cada campo tenga ancho completo
+   y sea más fácil de usar con el dedo en pantallas táctiles. */
+@media (max-width: 768px) {
+  #origen ~ .form-row,
+  form .form-row {
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+}
