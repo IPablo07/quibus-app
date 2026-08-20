@@ -17,7 +17,7 @@ Enlace al proyecto de Figma: [https://www.figma.com/design/ASTusrmuMWKqSbYTHO8be
 | Resultados (`pages/resultados.html`) | Pablo Jacome | Tarjetas de rutas (`article`) con tiempo estimado y parada, mapa embebido |
 | Login (`pages/login.html`) | Pablo Jacome | Formulario de acceso, mensaje de error de validación, iconos de redes sociales |
 | Registro (`pages/registro.html`) | Pablo Jacome | Formulario en dos columnas (Nombre/Apellido, Email/Password), mensaje de error de validación |
-| Favoritos (`pages/favoritos.html`) | Pablo| Lista de rutas guardadas, botón "Añadir ruta" (estilo fantasma), mapa embebido |
+| Favoritos (`pages/favoritos.html`) | Pablo Jacome| Lista de rutas guardadas, botón "Añadir ruta" (estilo fantasma), mapa embebido |
 | Paradas Cercanas (`pages/paradas-cercanas.html`) | Mateo Hidalgo | Filtro de búsqueda de paradas, lista de paradas con distancia y ruta, mapa embebido |
 | Perfil (`pages/perfil.html`) | Mateo Hidalgo | Tarjeta de perfil con avatar, menú de opciones, modal de confirmación de cierre de sesión |
 
