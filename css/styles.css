@@ -869,16 +869,3 @@ main > section.resultados-grid article {
   }
 }
 
-/* ============================================
-   ESPECÍFICO: FAVORITOS Y PARADAS - MEDIA QUERIES
-   ============================================ */
-@media (max-width: 768px) {
-  .mapa-card {
-    min-width: 100%;
-  }
-
-  .ruta-favorita,
-  .parada-item {
-    font-size: var(--font-body);
-  }
-}
