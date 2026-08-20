@@ -802,3 +802,83 @@ footer p {
     gap: var(--space-sm);
   }
 }
+
+
+/* ============================================
+   ESPECÍFICO: RESULTADOS - FLEXBOX Y MEDIA QUERIES
+   ============================================ */
+
+/* Flexbox: sobrescribe flex-direction:column heredado de la tarjeta
+   principal, para que las tarjetas de rutas se distribuyan en filas
+   que se envuelven automáticamente según el espacio disponible. */
+main > section.resultados-grid {
+  flex-direction: row;   /* Cambia de columna a fila: los <article> se acomodan uno al lado del otro, no uno debajo del otro */
+  flex-wrap: wrap;       /* Si no caben todos en una sola fila, los que sobran "saltan" a una nueva línea, en vez de encogerse hasta ser ilegibles o desbordar la pantalla */
+  gap: var(--space-sm);  /* Espacio de 16px entre cada tarjeta, tanto horizontal como verticalmente */
+}
+
+main > section.resultados-grid h2 {
+  width: 100%;  /* El título "Resultados de Búsqueda" ocupa todo el ancho disponible, para que quede en su propia línea arriba de las tarjetas, y no intente "acomodarse en fila" junto con los articles */
+}
+
+main > section.resultados-grid article {
+  flex: 1 1 calc(50% - var(--space-sm) / 2);
+  /*    ↑   ↑   ↑
+        |   |   └─ flex-basis: el tamaño "ideal" de partida de cada tarjeta:
+        |   |      la mitad del contenedor, menos la mitad del espacio (gap)
+        |   |      que hay entre las dos columnas, para que 2 tarjetas +
+        |   |      1 gap quepan exactos sin desbordar.
+        |   └───── flex-shrink: 1 = si no hay espacio suficiente, la tarjeta
+        |          puede encogerse (hasta el min-width).
+        └───────── flex-grow: 1 = si sobra espacio, la tarjeta puede crecer
+                   para llenarlo (por ejemplo, si hay un número impar de
+                   tarjetas, la última se estira para ocupar la fila completa).
+  */
+  min-width: 220px;  /* Nunca se va a encoger más allá de 220px, sin importar cuánto se achique la pantalla — esto evita que el texto se vea aplastado */
+}
+
+/* Media Query: en pantallas medianas o menores, cada tarjeta pasa
+   a ocupar el 100% del ancho disponible, mostrando una sola columna
+   en lugar de dos, para mantener buena legibilidad. */
+@media (max-width: 1024px) {
+  main > section.resultados-grid article {
+    flex: 1 1 100%;  /* Cambia el flex-basis de "50% menos el gap" a "100%" -
+                         cada tarjeta ahora ocupa TODO el ancho disponible,
+                         forzando que solo quepa una por fila */
+  }
+}
+
+
+/* ============================================
+   ESPECÍFICO: PERFIL - FLEXBOX Y MEDIA QUERIES
+   ============================================ */
+
+/* Media Query: en pantallas muy pequeñas (celulares angostos),
+   la tarjeta de perfil cambia de fila a columna, centrando el
+   avatar arriba del nombre y correo en lugar de ponerlos uno
+   al lado del otro, ya que en fila el texto quedaría muy
+   comprimido junto al avatar. */
+@media (max-width: 480px) {
+  .profile-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .perfil-main {
+    padding: var(--space-md) var(--space-sm);
+  }
+}
+
+/* ============================================
+   ESPECÍFICO: FAVORITOS Y PARADAS - MEDIA QUERIES
+   ============================================ */
+@media (max-width: 768px) {
+  .mapa-card {
+    min-width: 100%;
+  }
+
+  .ruta-favorita,
+  .parada-item {
+    font-size: var(--font-body);
+  }
+}
