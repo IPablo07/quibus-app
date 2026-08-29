@@ -1,13 +1,27 @@
+@charset "UTF-8";
+
 /* ============================================
    VARIABLES CSS - UI Kit QuiBus
    ============================================ */
 :root {
-  /* Colores */
-  --color-primary: #C97B5C;
+  /* Colores.
+     --color-primary se oscurecio de #C97B5C a #A8532F para que el texto blanco
+     encima alcance 5.33:1 y cumpla WCAG AA (antes daba 3.25:1, insuficiente
+     para texto normal). --color-primary-dark es su version para :hover. */
+  --color-primary: #A8532F;
+  --color-primary-dark: #8C4426;
   --color-secondary: #DDB256;
+  --color-secondary-dark: #c99e47;
   --color-background: #FFFFFF;
   --color-text: #000000;
   --color-border: #d8dce5;
+
+  /* Anillo de foco: se dibuja como dos aros concentricos (halo claro por
+     dentro, trazo oscuro por fuera) para que siempre haya contraste, sea cual
+     sea el fondo del contenedor. Sobre fondos claros manda el trazo oscuro
+     (17.4:1 sobre blanco); sobre el naranja manda el halo (5.33:1). */
+  --focus-ring: #1A1A1A;
+  --focus-halo: #FFFFFF;
 
   /* Tipografía */
   --font-primary: Arial, sans-serif;
@@ -17,7 +31,8 @@
   --font-h3: 17px;
   --font-button: 22px;
   --font-body: 13px;
-  --font-caption: 10px;
+  /* Subido de 10px a 12px: a 10px el texto es ilegible al margen del contraste. */
+  --font-caption: 12px;
 
   /* Espaciados */
   --space-xs: 8px;
@@ -78,6 +93,22 @@ h3 {
   border: 0;
 }
 
+/* Indicador de foco unico para toda la app.
+   Antes cada componente definia su propio outline y cuatro de ellos usaban
+   --color-secondary, que sobre el naranja daba 1.63:1 y sobre blanco 1.99:1
+   (WCAG SC 1.4.11 exige 3:1). Ademas seis controles no declaraban ninguna
+   regla. Con una sola regla, todos los controles enfocables quedan cubiertos. */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 3px var(--focus-halo);
+}
+
 /* ============================================
    NAVEGACIÓN (header y nav)
    ============================================ */
@@ -114,11 +145,6 @@ nav a {
 
 nav a:hover {
   color: var(--color-primary);
-}
-
-nav a:focus-visible {
-  outline: 3px solid var(--color-secondary);
-  outline-offset: 3px;
 }
 
 /* ============================================
@@ -177,12 +203,7 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-  background-color: #b16a4d;
-}
-
-button[type="submit"]:focus-visible {
-  outline: 3px solid var(--color-secondary);
-  outline-offset: 3px;
+  background-color: var(--color-primary-dark);
 }
 
 button[type="submit"]:disabled {
@@ -203,7 +224,19 @@ label {
   font-weight: 600;
 }
 
+/* Leyenda que explica el asterisco de los campos obligatorios. */
+.form-nota {
+  margin: 0;
+  font-size: var(--font-caption);
+  color: #ffffff;
+}
+
+.obligatorio {
+  font-weight: 700;
+}
+
 input[type="text"],
+input[type="email"],
 input[type="password"],
 input[type="search"] {
   background-color: var(--color-secondary);
@@ -214,31 +247,42 @@ input[type="search"] {
   color: var(--color-text);
 }
 
+/* Subido de #6b5a3f (3.35:1) a #4a3820, que da 5.63:1 sobre el mostaza. */
 input[type="text"]::placeholder,
+input[type="email"]::placeholder,
 input[type="password"]::placeholder,
 input[type="search"]::placeholder {
-  color: #6b5a3f;
+  color: #4a3820;
 }
 
-input[type="text"]:focus,
-input[type="password"]:focus,
-input[type="search"]:focus {
-  outline: 3px solid #ffffff;
-  outline-offset: 2px;
+/* La marca de error la aplica y la retira js/auth.js al validar; ya no viene
+   escrita en el HTML. El borde acompana al mensaje, no lo sustituye. */
+input.input-error {
+  border: 2px solid #ffffff;
+  background-color: #f0c9b6;
 }
 
-input[type="text"].input-error {
-  border: 2px solid #d92d20;
-}
-
+/* El mensaje vive dentro de la tarjeta naranja: en rojo daba 1.49:1, asi que
+   el color no era recuperable. En blanco y negrita alcanza 5.33:1; el icono
+   de aviso acompana al color para no depender solo de el. */
 .error-message {
-  color: #d92d20;
+  color: #ffffff;
+  font-weight: 700;
   font-size: var(--font-caption);
   margin-top: -8px;
   margin-bottom: 0;
 }
 
+.error-message[hidden] {
+  display: none;
+}
+
+.error-message::before {
+  content: "⚠️ ";
+}
+
 input[type="text"]:disabled,
+input[type="email"]:disabled,
 input[type="password"]:disabled {
   background-color: #e9ecef;
   color: #6b7280;
@@ -261,7 +305,9 @@ article {
 article h3 {
   margin-top: 0;
   margin-bottom: var(--space-xs);
-  color: var(--color-primary);
+  /* Color propio en vez de heredar el primario: sobre la tarjeta #f7f8fa
+     este tono da 5.73:1, mientras que --color-primary se quedaba en 3.05:1. */
+  color: #94502F;
 }
 
 article p {
@@ -362,43 +408,7 @@ footer p {
 }
 
 .login-card button[type="submit"]:hover {
-  background-color: #c99e47;
-}
-
-.divider {
-  display: flex;
-  align-items: center;
-  text-align: center;
-  color: #ffffff;
-  font-size: var(--font-caption);
-  margin: var(--space-sm) 0;
-}
-
-.divider::before,
-.divider::after {
-  content: "";
-  flex: 1;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
-}
-
-.divider span {
-  padding: 0 var(--space-xs);
-}
-
-.social-icons {
-  display: flex;
-  justify-content: center;
-  gap: var(--space-sm);
-  margin-bottom: var(--space-sm);
-}
-
-.icon-link {
-  color: #ffffff;
-  display: flex;
-}
-
-.icon-link:hover {
-  color: var(--color-primary);
+  background-color: var(--color-secondary-dark);
 }
 
 .registro-link {
@@ -459,12 +469,7 @@ footer p {
 }
 
 .ruta-favorita:hover {
-  background-color: #c99e47;
-}
-
-.ruta-favorita:focus-visible {
-  outline: 3px solid var(--color-secondary);
-  outline-offset: 2px;
+  background-color: var(--color-secondary-dark);
 }
 
 .boton-anadir {
@@ -514,11 +519,6 @@ footer p {
   background-color: rgba(255, 255, 255, 0.15);
 }
 
-.favorito-eliminar:focus-visible {
-  outline: 3px solid #ffffff;
-  outline-offset: 2px;
-}
-
 .favoritos-vacio {
   color: #ffffff;
   opacity: 0.85;
@@ -541,11 +541,6 @@ footer p {
   color: var(--color-text);
   font-family: var(--font-primary);
   font-size: var(--font-body);
-}
-
-.select-ruta:focus-visible {
-  outline: 3px solid var(--color-primary);
-  outline-offset: 2px;
 }
 
 /* ============================================
@@ -588,12 +583,7 @@ footer p {
 }
 
 .parada-item:hover {
-  background-color: #c99e47;
-}
-
-.parada-item:focus-visible {
-  outline: 3px solid #ffffff;
-  outline-offset: 2px;
+  background-color: var(--color-secondary-dark);
 }
 
 .parada-item__nombre {
@@ -615,27 +605,30 @@ footer p {
   border-bottom: 1px solid var(--color-border);
 }
 
-.perfil-header h2 {
+/* El titulo de perfil pasó de <h2> a <h1> para que la pagina tenga un
+   encabezado de primer nivel; conserva el tamaño que ya tenia. */
+.perfil-header h1 {
   flex: 1;
   text-align: center;
   margin: 0;
+  font-size: var(--font-h2);
 }
 
 .icon-btn {
   background: none;
   border: none;
   font-size: var(--font-h2);
+  font-weight: 700;
   padding: var(--space-xs);
   color: var(--color-text);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
 }
 
 .icon-btn:hover {
   color: var(--color-primary);
-}
-
-.icon-btn:focus-visible {
-  outline: 3px solid var(--color-secondary);
-  outline-offset: 2px;
 }
 
 .perfil-main {
@@ -672,8 +665,11 @@ footer p {
   flex-shrink: 0;
 }
 
-.profile-card__info h3 {
+/* El nombre del usuario es <h2> desde que el titulo de la pagina es <h1>;
+   conserva el tamaño de h3 que tenia antes. */
+.profile-card__info h2 {
   margin: 0;
+  font-size: var(--font-h3);
 }
 
 .profile-card__info p {
@@ -700,12 +696,7 @@ footer p {
 }
 
 .profile-menu__item:hover {
-  background-color: #c99e47;
-}
-
-.profile-menu__item:focus-visible {
-  outline: 3px solid var(--color-primary);
-  outline-offset: 2px;
+  background-color: var(--color-secondary-dark);
 }
 
 .profile-menu__item--danger {
@@ -760,7 +751,7 @@ footer p {
 }
 
 .alert-box__confirm:hover {
-  background-color: #b16a4d;
+  background-color: var(--color-primary-dark);
 }
 
 /* ============================================
@@ -838,6 +829,17 @@ footer p {
 
 .resultados-lista h2 {
   width: 100%;
+}
+
+/* Enlace de cada tarjeta del panel lateral: el <article> completo no es
+   pulsable, asi que el destino se expone como un enlace real y no como una
+   tarjeta que "parece" pulsable pero no lo anuncia. */
+.resultados-lista article a {
+  display: inline-block;
+  margin-top: var(--space-xs);
+  font-size: var(--font-caption);
+  font-weight: 700;
+  color: #94502F;
 }
 
 /* Cada tarjeta ocupa aprox. la mitad del contenedor menos el espacio del gap,
@@ -935,3 +937,29 @@ main > section.resultados-grid article {
   }
 }
 
+/* ============================================
+   ESPECÍFICO: PANTALLA DE AYUDA
+   ============================================ */
+.faq {
+  margin: 0;
+}
+
+.faq dt {
+  font-weight: 700;
+  font-size: var(--font-h3);
+  margin-top: var(--space-md);
+}
+
+.faq dt:first-of-type {
+  margin-top: 0;
+}
+
+.faq dd {
+  margin: var(--space-xs) 0 0;
+  max-width: 65ch;
+}
+
+.faq a {
+  color: #ffffff;
+  font-weight: 700;
+}

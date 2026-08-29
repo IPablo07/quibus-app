@@ -143,32 +143,21 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // --- Control del modal ---
-  if (btnAbrir && modal) {
-    btnAbrir.addEventListener("click", () => {
-      modal.hidden = false;
-      if (select) select.focus();
-    });
-  }
+  // El foco, la trampa de tabulacion, Escape y la devolucion del foco al boton
+  // que lo abrio los gestiona iniciarModal (js/modal.js), igual que en perfil.
+  if (modal) {
+    const dialogo = iniciarModal(modal, { focoInicial: "#selectRuta" });
 
-  if (btnCancelar && modal) {
-    btnCancelar.addEventListener("click", () => {
-      modal.hidden = true;
-    });
-  }
+    if (btnAbrir) btnAbrir.addEventListener("click", dialogo.abrir);
+    if (btnCancelar) btnCancelar.addEventListener("click", dialogo.cerrar);
 
-  if (btnConfirmar && modal) {
-    btnConfirmar.addEventListener("click", () => {
-      agregarFavorito(select.value);
-      modal.hidden = true;
-    });
-  }
-
-  // Cerrar el modal con la tecla Escape.
-  document.addEventListener("keydown", (evento) => {
-    if (evento.key === "Escape" && modal && !modal.hidden) {
-      modal.hidden = true;
+    if (btnConfirmar) {
+      btnConfirmar.addEventListener("click", () => {
+        agregarFavorito(select.value);
+        dialogo.cerrar();
+      });
     }
-  });
+  }
 
   render();
 });
