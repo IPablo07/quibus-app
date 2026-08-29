@@ -23,7 +23,7 @@
         <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.5-6 8-6s8 2 8 6"/></svg>
       </div>
       <div class="profile-card__info">
-        <h2>Juan Serrano</h2>
+       <h2 id="nombreUsuario">Juan Serrano</h2>
         <p>juan.serrano@ejemplo.com</p>
       </div>
     </article>
@@ -65,6 +65,22 @@
     document.getElementById('confirmLogout').addEventListener('click', () => {
       window.location.href = '../index.html';
     });
+    // Cargar nombre del usuario desde localStorage
+  document.addEventListener("DOMContentLoaded", () => {
+    const usuarioGuardado = localStorage.getItem("usuarioActual");
+    if (usuarioGuardado) {
+      const usuario = JSON.parse(usuarioGuardado);
+      const nombreUsuario = document.getElementById("nombreUsuario");
+      if (nombreUsuario) {
+        nombreUsuario.textContent = usuario.nombre + " " + usuario.apellido;
+      }
+      // También puedes actualizar el email si lo deseas
+      const emailElement = document.querySelector(".profile-card__info p");
+      if (emailElement) {
+        emailElement.textContent = usuario.email;
+      }
+    }
+  });
   </script>
 
 </body>

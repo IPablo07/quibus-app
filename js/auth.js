@@ -95,6 +95,18 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Prototipo sin backend: aqui iria el POST contra el servidor.
+    // Guardar datos del usuario registrado
+    const nombre = form.querySelector("#nombre")?.value;
+    const apellido = form.querySelector("#apellido")?.value;
+    const email = form.querySelector("#email")?.value;
+
+    if (nombre && apellido && email) {
+      localStorage.setItem("usuarioActual", JSON.stringify({
+        nombre: nombre,
+        apellido: apellido,
+        email: email
+      }));
+    }
     window.location.href = "../index.html";
   });
 
