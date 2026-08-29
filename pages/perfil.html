@@ -4,13 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>QuiBus - Perfil</title>
-  <link rel="stylesheet" href="../css/styles.css?v=2">
+  <link rel="stylesheet" href="../css/styles.css?v=3">
 </head>
 <body class="perfil-body">
 
   <header class="perfil-header">
-    <button class="icon-btn" aria-label="Volver">←</button>
-    <h2>Perfil</h2>
+    <!-- Antes era un <button> sin ningún manejador: se podía enfocar y pulsar,
+         pero no hacía nada. Como enlace tiene destino real y funciona igual que
+         la flecha de registro.html. -->
+    <a href="../index.html" class="icon-btn" aria-label="Volver al inicio">←</a>
+    <!-- Título de la página: era <h2> sin que existiera ningún <h1>. -->
+    <h1>Perfil</h1>
   </header>
 
   <main class="perfil-main">
@@ -19,23 +23,27 @@
         <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.5-6 8-6s8 2 8 6"/></svg>
       </div>
       <div class="profile-card__info">
-        <h3>Juan Serrano</h3>
-        <p>login@gmail.com</p>
+        <h2>Juan Serrano</h2>
+        <p>juan.serrano@ejemplo.com</p>
       </div>
     </article>
 
     <nav class="profile-menu" aria-label="Menú de perfil">
       <a href="favoritos.html" class="profile-menu__item">♡ Favoritos</a>
-      <a href="#" class="profile-menu__item">◎ Ayuda</a>
-      <button type="button" class="profile-menu__item profile-menu__item--danger" id="btnLogout">← Cerrar Sesión</button>
+      <a href="ayuda.html" class="profile-menu__item">◎ Ayuda</a>
+      <button type="button" class="profile-menu__item profile-menu__item--danger" id="btnLogout">← Cerrar sesión</button>
     </nav>
 
-    <!-- Componente adicional: alerta de confirmación -->
-    <div class="alert-box" id="logoutAlert" hidden>
-      <p>¿Seguro que deseas cerrar sesión?</p>
+    <!-- Diálogo de confirmación.
+         role="dialog" + aria-modal anuncian que lo de detrás queda inerte, y
+         aria-labelledby hace que el lector de pantalla lea la pregunta como
+         nombre del diálogo al abrirlo. El foco lo gestiona js/modal.js. -->
+    <div class="alert-box" id="logoutAlert" role="dialog" aria-modal="true"
+         aria-labelledby="tituloLogout" hidden>
+      <p id="tituloLogout">¿Seguro que deseas cerrar sesión?</p>
       <div class="alert-box__actions">
         <button type="button" class="alert-box__cancel" id="cancelLogout">Cancelar</button>
-        <button type="button" class="alert-box__confirm" id="confirmLogout">Cerrar Sesión</button>
+        <button type="button" class="alert-box__confirm" id="confirmLogout">Cerrar sesión</button>
       </div>
     </div>
   </main>
@@ -44,11 +52,16 @@
   <p>&copy; 2026 QuiBus. Todos los derechos reservados.</p>
 </footer>
 
+  <script src="../js/modal.js"></script>
   <script>
     const alertBox = document.getElementById('logoutAlert');
 
-    document.getElementById('btnLogout').addEventListener('click', () => alertBox.hidden = false);
-    document.getElementById('cancelLogout').addEventListener('click', () => alertBox.hidden = true);
+    // El foco arranca en "Cancelar": es la opción segura, y así una pulsación
+    // accidental de Enter no cierra la sesión.
+    const dialogoLogout = iniciarModal(alertBox, { focoInicial: '#cancelLogout' });
+
+    document.getElementById('btnLogout').addEventListener('click', dialogoLogout.abrir);
+    document.getElementById('cancelLogout').addEventListener('click', dialogoLogout.cerrar);
     document.getElementById('confirmLogout').addEventListener('click', () => {
       window.location.href = '../index.html';
     });
