@@ -115,14 +115,37 @@ textarea:focus-visible,
 header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  gap: var(--space-md);
   padding: var(--space-sm) var(--space-md);
 }
 
 header img {
-  height: 40px;
+  height: 40px; flex-shrink: 0;
+}
+header .icon-btn {
+  font-size: 24px;
+  background: none;
+  border: none;
+  color: var(--color-primary);
+  cursor: pointer;
+  padding: var(--space-xs);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  transition: background-color 0.2s;
 }
 
+header .icon-btn:hover {
+  background-color: var(--color-secondary);
+}
+
+header .icon-btn:focus {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
+}
 header h1 {
   font-size: var(--font-logo);
   color: var(--color-primary);
