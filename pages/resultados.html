@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Resultados de búsqueda de rutas de bus en QuiBus">
   <title>QuiBus - Resultados de Búsqueda</title>
-  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../lib/leaflet/leaflet.css">
+  <link rel="stylesheet" href="../css/styles.css?v=2">
 </head>
 <body>
 
@@ -25,7 +26,7 @@
 
   <main>
 
-    <section class="resultados-grid" aria-labelledby="titulo-resultados"># Para evitar que se cree un bug debemos utilizar otro nombre de clase
+    <section class="resultados-grid" aria-labelledby="titulo-resultados">
       <h2 id="titulo-resultados">Resultados de Búsqueda</h2>
 
       <article aria-label="Ruta T1, tiempo estimado 15 minutos, parada Parque Carolina">
@@ -68,19 +69,8 @@
 
     <section class="mapa-card" aria-label="Mapa de rutas">
       <h2>Mapa de rutas</h2>
-      <iframe
-        class="mapa-embed"
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d320846.1853174419!2d-78.5953474688905!3d-0.18625022770477181!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91d59a4002427c9f%3A0x44b991e158ef5572!2sQuito!5e1!3m2!1ses!2sec!4v1786583657765!5m2!1ses!2sec"
-        width="100%"
-        height="400"
-        style="border:0;"
-        allowfullscreen=""
-        loading="lazy"
-        referrerpolicy="strict-origin-when-cross-origin"
-        title="Mapa de rutas de bus en Quito"
-        aria-describedby="desc-mapa">
-      </iframe>
-      <p id="desc-mapa" class="sr-only">El mapa muestra las rutas T1, T2, T4, T6 y T8 distribuidas por la ciudad, cada una identificada con un color distinto y marcadores en las paradas principales.</p>
+      <div id="mapa-resultados" class="leaflet-mapa" role="img" aria-label="Mapa con las paradas de las rutas encontradas" aria-describedby="desc-mapa"></div>
+      <p id="desc-mapa" class="sr-only">El mapa muestra las paradas de las rutas encontradas en la búsqueda, distribuidas por la ciudad.</p>
     </section>
 
   </main>
@@ -89,5 +79,9 @@
     <p>&copy; 2026 QuiBus. Todos los derechos reservados.</p>
   </footer>
 
+  <script src="../lib/leaflet/leaflet.js"></script>
+  <script src="../js/data.js"></script>
+  <script src="../js/mapa.js"></script>
+  <script src="../js/resultados.js"></script>
 </body>
 </html>

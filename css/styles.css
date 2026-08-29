@@ -141,7 +141,8 @@ main > section:first-of-type {
   background-color: var(--color-primary);
   border-radius: var(--radius-lg);
   color: #ffffff;
-  min-width: 250px;
+  flex: 1 1 340px;
+  min-width: 300px;
   display: flex;
   flex-direction: column;
 }
@@ -279,7 +280,8 @@ main > section img {
   box-shadow: 0 4px 12px rgb(0 0 0 / 8%);
 }
 
-.mapa-embed {
+.mapa-embed,
+.leaflet-mapa {
   width: 100%;
   max-width: 100%;
   aspect-ratio: 16 / 9;
@@ -287,6 +289,10 @@ main > section img {
   border-radius: var(--radius-md);
   border: 1px solid var(--color-border);
   box-shadow: 0 4px 12px rgb(0 0 0 / 8%);
+}
+
+.leaflet-mapa {
+  z-index: 0;
 }
 
 .mapa-card {
@@ -480,6 +486,66 @@ footer p {
   margin: 0;
   padding: 0;
   margin-bottom: var(--space-sm);
+}
+
+/* Cada favorito es una fila: el botón de la ruta ocupa el espacio
+   disponible y el botón de eliminar queda fijo a la derecha. */
+.lista-favoritos li {
+  display: flex;
+  align-items: stretch;
+  gap: var(--space-xs);
+}
+
+.lista-favoritos .ruta-favorita {
+  flex: 1;
+  width: auto;
+}
+
+.favorito-eliminar {
+  background-color: transparent;
+  color: #ffffff;
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  font-size: var(--font-h3);
+  padding: 0 var(--space-sm);
+  flex-shrink: 0;
+}
+
+.favorito-eliminar:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.favorito-eliminar:focus-visible {
+  outline: 3px solid #ffffff;
+  outline-offset: 2px;
+}
+
+.favoritos-vacio {
+  color: #ffffff;
+  opacity: 0.85;
+  font-size: var(--font-body);
+}
+
+.boton-anadir:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Desplegable de rutas dentro del modal "Añadir ruta" */
+.select-ruta {
+  width: 100%;
+  padding: var(--space-sm);
+  margin-bottom: var(--space-sm);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background-color: var(--color-secondary);
+  color: var(--color-text);
+  font-family: var(--font-primary);
+  font-size: var(--font-body);
+}
+
+.select-ruta:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 2px;
 }
 
 /* ============================================
