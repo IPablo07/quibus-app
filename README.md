@@ -21,7 +21,7 @@ Enlace al proyecto de Figma: [https://www.figma.com/design/ASTusrmuMWKqSbYTHO8be
 | Paradas Cercanas (`pages/paradas-cercanas.html`) | Mateo Hidalgo | Filtro de búsqueda de paradas, lista de paradas con distancia y ruta, mapa embebido |
 | Perfil (`pages/perfil.html`) | Mateo Hidalgo | Tarjeta de perfil con avatar, menú de opciones, modal de confirmación de cierre de sesión |
 
-Cada pantalla individual se implementó en una rama personal, conectada a la hoja de estilos general `css/styles.css`, reutilizando las variables, botones, campos y tarjetas ya definidos por el equipo, e incorporando un componente adicional propio.
+Cada pantalla individual se implementó en una rama personal, conectada a la hoja de estilos general `assets/css/styles.css`, reutilizando las variables, botones, campos y tarjetas ya definidos por el equipo, e incorporando un componente adicional propio.
 
 ## Integrantes
 - Pablo Jacome

@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>QuiBus - Buscar Viaje</title>
   <link rel="stylesheet" href="lib/leaflet/leaflet.css">
-  <link rel="stylesheet" href="css/styles.css?v=3">
+  <link rel="stylesheet" href="assets/css/styles.css?v=3">
 </head>
 <body>
 
   <header> 
-    <img src="images/logo.png" alt="Logotipo de QuiBus, un autobús estilizado en color rojo">
+    <img src="assets/images/logo.png" alt="Logotipo de QuiBus, un autobús estilizado en color rojo">
     <h1>QuiBus</h1>
 
     <nav aria-label="Menú principal">
@@ -67,9 +67,9 @@
   </footer>
 
   <script src="lib/leaflet/leaflet.js"></script>
-  <script src="js/data.js"></script>
-  <script src="js/mapa.js"></script>
-  <script src="js/buscar.js"></script>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/mapa.js"></script>
+  <script src="assets/js/buscar.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       const { map, capaMarcadores } = initQuiBusMapa("mapa-index") || {};
