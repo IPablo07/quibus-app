@@ -115,8 +115,7 @@ textarea:focus-visible,
 header {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: var(--space-md);
+  justify-content: space-between;
   padding: var(--space-sm) var(--space-md);
 }
 
@@ -397,8 +396,6 @@ footer p {
    ESPECÍFICO: PANTALLA DE LOGIN
    ============================================ */
 .login-header {
-  justify-content: center;
-  gap: var(--space-xs);
   border-bottom: 1px solid var(--color-border);
 }
 
